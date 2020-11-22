@@ -807,21 +807,8 @@ class Ui_MainWindow(object):
             elif ok and len(text.strip())==0:
                 self.showdlg("PLEASE ENTER VALID TEXT")
 
-            else:
-                self.showdlg("INVALID TEXT")
         if txt=="OPEN Team":
-            import sqlite3
-            team=sqlite3.connect("dreamteam.db")
-            cur=team.cursor()
-            sql="select name from teams;"
-            cur=cur.execute(sql)
-            teams=[]
-            for row in cur:
-                teams.append(row[0])
-            team, ok = QtWidgets.QInputDialog.getItem(MainWindow, "Dream Team Selector",
-                "Choose a team", teams, 0, False)
-            if ok and team:
-                self.openWindow()
+            self.openWindow()
 
         if txt=="EVALUATE Team":
             self.openWindow2()
