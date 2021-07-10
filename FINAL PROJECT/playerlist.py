@@ -839,7 +839,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     otherwindow= QtWidgets.QMainWindow()
-    ui = Ak_otherwindow
+    ui = Ak_otherwindow()
     ui.setupUi(otherwindow)
     otherwindow.show()
     sys.exit(app.exec_())
