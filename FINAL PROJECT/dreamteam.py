@@ -702,16 +702,16 @@ class Ui_MainWindow(object):
         self.l=[self.L1,self.L2,self.L3,self.L4,self.L5]
         self.r=[self.R1,self.R2,self.R3,self.R4,self.R5]
         self.Rwk=[self.radioButton_7,self.radioButton_11,self.radioButton_10,self.radioButton_8,self.radioButton_9]
-        for i in self.Rwk[:len(self.Rwk)]:
+        for i in self.Rwk:
             i.setHidden(True)
         self.Rbat=[self.radioButton,self.radioButton_3,self.radioButton_4,self.radioButton_5,self.radioButton_6 ]
-        for i in self.Rbat[:len(self.Rbat)]:
+        for i in self.Rbat:
             i.setHidden(True)
         self.Rbwl=[self.radioButton_2,self.radioButton_14,self.radioButton_15,self.radioButton_16,self.radioButton_17]
-        for i in self.Rbwl[:len(self.Rbwl)]:
+        for i in self.Rbwl:
             i.setHidden(True)
         self.Rar=[self.radioButton_19,self.radioButton_20,self.radioButton_21,self.radioButton_22,self.radioButton_23]
-        for i in self.Rar[:len(self.Rar)]:
+        for i in self.Rar:
             i.setHidden(True)
 
         self.v=[self.V1,self.V2,self.V3,self.V4,self.V5]
@@ -719,27 +719,27 @@ class Ui_MainWindow(object):
         self.S=[self.label,self.label_2,self.label_3,self.label_4,self.label_21,self.label_23,self.label_22,self.label_24,self.label_25,self.label_26,self.label_27]
         
         
+      
+        self.pushButton_5.setEnabled(False)
+        
         self.radioButton_7.clicked.connect(lambda:self.save(self.radioButton_7,0,"WK"))
         self.radioButton_11.clicked.connect(lambda:self.save(self.radioButton_11,1,"WK"))
-        
+
         self.radioButton.clicked.connect(lambda:self.save(self.radioButton,0,"BAT"))
         self.radioButton_3.clicked.connect(lambda:self.save(self.radioButton_3,1,"BAT"))
         self.radioButton_4.clicked.connect(lambda:self.save(self.radioButton_4,2,"BAT"))
         self.radioButton_5.clicked.connect(lambda:self.save(self.radioButton_5,3,"BAT"))
         self.radioButton_6.clicked.connect(lambda:self.save(self.radioButton_6,4,"BAT"))
-       
+
         self.radioButton_2.clicked.connect(lambda:self.save(self.radioButton_2,0,"BWL"))
         self.radioButton_14.clicked.connect(lambda:self.save(self.radioButton_14,1,"BWL"))
         self.radioButton_15.clicked.connect(lambda:self.save(self.radioButton_15,2,"BWL"))
         self.radioButton_16.clicked.connect(lambda:self.save(self.radioButton_16,3,"BWL"))
-        
+    
         self.radioButton_19.clicked.connect(lambda:self.save(self.radioButton_19,0,"AR"))
         self.radioButton_20.clicked.connect(lambda:self.save(self.radioButton_20,1,"AR"))
         self.radioButton_21.clicked.connect(lambda:self.save(self.radioButton_21,2,"AR"))
-        self.radioButton_22.clicked.connect(lambda:self.save(self.radioButton_22,3,"AR"))
-        
-
-        
+        self.radioButton_22.clicked.connect(lambda:self.save(self.radioButton_22,3,"AR")) 
             
        
         
@@ -756,6 +756,7 @@ class Ui_MainWindow(object):
             if ok and len(text.strip())!=0:
                 self.name=str(text)
                 
+                
                 self.pushButton_5.setEnabled(True)
                 self.player=[]
                 self.WK=[]
@@ -764,13 +765,17 @@ class Ui_MainWindow(object):
                 self.AR=[]
                 self.value=1000
                 for i in self.Rwk[:len(self.Rwk)]:
-                    i.setHidden(True)
+                    i.setChecked(False)
+                    
                 for i in self.Rbat[:len(self.Rbat)]:
-                    i.setHidden(True)
+                    i.setChecked(False)
+                    
                 for i in self.Rbwl[:len(self.Rbwl)]:
-                    i.setHidden(True)
+                    i.setChecked(False)
+                    
                 for i in self.Rar[:len(self.Rar)]:
-                    i.setHidden(True)
+                    i.setChecked(False)
+                    
                 for i in self.r[:len(self.r)]:
                     i.setText("")
                 for i in self.v[:len(self.v)]:
@@ -796,12 +801,23 @@ class Ui_MainWindow(object):
                 self.pushButton_2.clicked.connect(lambda:self.show("BAT"))
                 self.pushButton_4.clicked.connect(lambda:self.show("BWL"))
                 self.pushButton.clicked.connect(lambda:self.show("AR"))
+                
+               
+                
+                
+                
+                
+       
+               
+        
+               
                 self.pushButton_5.clicked.connect(lambda:self.savet())
             elif ok and len(text.strip())==0:
                 self.showdlg("PLEASE ENTER VALID TEXT")
+            
 
-            else:
-                self.showdlg("INVALID TEXT")
+
+            
         if txt=="OPEN TEAM":
             self.openWindow()
 
@@ -813,16 +829,16 @@ class Ui_MainWindow(object):
 
     def show(self,n):
         ctg=n       
-        for i in self.Rwk[:len(self.Rwk)]:
+        for i in self.Rwk:
             i.setHidden(True)
-        self.Rbat=[self.radioButton,self.radioButton_3,self.radioButton_4,self.radioButton_5,self.radioButton_6 ]
-        for i in self.Rbat[:len(self.Rbat)]:
+       
+        for i in self.Rbat:
             i.setHidden(True)
-        self.Rbwl=[self.radioButton_2,self.radioButton_14,self.radioButton_15,self.radioButton_16,self.radioButton_17]
-        for i in self.Rbwl[:len(self.Rbwl)]:
+        
+        for i in self.Rbwl:
             i.setHidden(True)
-        self.Rar=[self.radioButton_19,self.radioButton_20,self.radioButton_21,self.radioButton_22,self.radioButton_23]
-        for i in self.Rar[:len(self.Rar)]:
+       
+        for i in self.Rar:
             i.setHidden(True)
         if ctg=="WK":
             self.H.setText("SELECT 1 WICKET KEEPER")
@@ -842,6 +858,7 @@ class Ui_MainWindow(object):
             for y in self.l[:self.a]:
                 self.result1=(self.result[i])
                 y.setText(str(self.result1[0]))
+              
                 i=i+1
         for i in range(1):
             for k in self.v[:self.a]:
@@ -891,30 +908,37 @@ class Ui_MainWindow(object):
             i.setText("")
         if ctg=="WK":
             for i in self.Rwk[:self.a]:
+             
                 i.setHidden(False)
             for i in self.e[self.a:]:
                 i.setPixmap(QtGui.QPixmap(""))
+            
+        
         elif ctg=="BAT":
             for i in self.Rbat[:self.a]:
                 i.setHidden(False)
             for i in self.e[self.a:]:
                 i.setPixmap(QtGui.QPixmap(""))
+        
         elif ctg=="BWL":
             for i in self.Rbwl[:self.a]:
                 i.setHidden(False)
             for i in self.e[self.a:]:
                 i.setPixmap(QtGui.QPixmap(""))
+           
         else :
             for i in self.Rar[:self.a]:
                 i.setHidden(False)
             for i in self.e[self.a:]:
                 i.setPixmap(QtGui.QPixmap(""))
+            
         for y in self.l[self.a:]:
             y.setText("")
         
 
         
-    def save(self,y,n,m):    
+    def save(self,y,n,m):   
+         
         if y.isChecked()==True:
                         
             self.result1=(self.result[n])
@@ -997,7 +1021,7 @@ class Ui_MainWindow(object):
             
 
     def savet(self):
-        
+        print(self.player)
         if len(self.player)<11:
             m="SELECT "+str(11-len(self.player))+" MORE PLAYER TO COMPLETE YOUR TEAM!"
             self.showdlg(m)
@@ -1008,7 +1032,7 @@ class Ui_MainWindow(object):
             string=string+str(self.player[i])
             if i<len(self.player)-1:
                 string=string+","
-        print(self.value)
+        print(string)
         self.pushButton_5.setEnabled(False)
         cur=team.cursor()
         sql="INSERT INTO teams(name,players,value) VALUES ('"+self.name+"','"+string+"','"+str(1000-self.value)+"');"
@@ -1030,6 +1054,7 @@ class Ui_MainWindow(object):
         Dialog.setText(msg)
         Dialog.setWindowTitle("Dream TEAM Selector")
         ret=Dialog.exec()  
+        
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
